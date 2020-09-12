@@ -178,6 +178,11 @@ h3{
     transition:all 0.5s ease;
     border:2px solid #fe4918;
 }
+ul{
+    list-style: none;
+    margin:0;
+    padding:0;
+}
 .button.hollow,
 .button.hollow:hover{
     background-color:white;
@@ -458,10 +463,12 @@ div.detalle-evento p{
     font-size: 20px;
 }
 
-/*
-ul.lista-invitados li{
+/*Invitados*/
+ul.lista-invitados li {
     padding: 10px;
     float: left;
+}
+
 }
 @media only screen and (min-width: 480px) {
     ul.lista-invitados li{
@@ -473,6 +480,7 @@ ul.lista-invitados li{
         width: 33.3%;
 }
 }
+
 div.invitado{
     position: relative;
     overflow: hidden;
@@ -484,6 +492,7 @@ div.invitado img{
     filter:grayscale(1);
     transition: 0.5s;
 }
+
 div.invitado:hover img{
     -webkit-filter: grayscale(0) ;;
     -o-filter: grayscale(0) ;;
@@ -507,6 +516,7 @@ div.invitado p{
     text-transform: uppercase;
     transition: 0.5s;
 }
+
 div.invitado:hover p{
     bottom: -80px;
     opacity: 0;
@@ -519,6 +529,7 @@ div.parallax{
     left: 0;
     
 }
+/*
 div.contador{
     position: relative;
     height: auto;
