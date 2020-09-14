@@ -568,7 +568,10 @@ p.numero{
     display: block;
     font-size: 4em;
     margin: 0 0 10px 0;
+    font-family: 'Oswald', sans-serif;
     }
+
+    /**Tabla de Precios**/
 ul.lista-precios>li{
     padding: 10px;
     }
@@ -578,7 +581,7 @@ ul.lista-precios>li{
     width: 33.3%;
     }
 }
-/*
+
 div.tabla-precio{
     border:1px solid #e1e1e1;
     background: #ffffff;
@@ -586,6 +589,7 @@ div.tabla-precio{
     text-align: center;
     transition: all 0.5s ease;
 }
+
 div.tabla-precio:hover{
     transform: scale(1.1);
     border: 1px solid #fe4918;
@@ -618,6 +622,7 @@ div.tabla-precio p.numero{
     color: #000;
     margin: 20px 0;
 }
+/*
 div.mapa{
     height: 420px;
     background-color: green;   
