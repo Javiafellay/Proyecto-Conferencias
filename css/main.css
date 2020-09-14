@@ -622,11 +622,14 @@ div.tabla-precio p.numero{
     color: #000;
     margin: 20px 0;
 }
-/*
+
+/**MAPA**/
+
 div.mapa{
     height: 420px;
     background-color: green;   
 }
+/**Testimoniales**/
 div.testimoniales {
  padding-bottom: 20px;
 }
@@ -639,6 +642,7 @@ div.testimonial {
  width: 33.3%;
  }
 }
+
 blockquote {
  background-color: #ffffff;
  border: 1px solid #e1e1e1;
@@ -663,6 +667,7 @@ blockquote p::before {
  line-height: 1;
  color: #fe4918;
 }
+
 footer.info-testimonial {
  padding: 0;
  background-color: transparent;
@@ -690,6 +695,7 @@ footer.info-testimonial cite span {
  text-transform: none;
  margin-top: 5px;
 }
+/*
 div.newsletter{
     position: relative;
     height: auto;
