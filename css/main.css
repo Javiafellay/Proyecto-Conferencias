@@ -742,7 +742,7 @@ div.cuenta-regresiva ul li{
         float: left;
     }
 }
-/*
+/*FOOTER*/
 footer{
     background-color: #353535;
     padding-top: 40px;
@@ -782,6 +782,7 @@ p.copyright{
     margin: 0;
     text-align: center;
 }
+/*
 form.registro h3{
     text-align: center;
     text-transform: uppercase;
