@@ -4,6 +4,18 @@
 	var regalo = document.getElementById('regalo');
 	document.addEventListener('DOMContentLoaded', function(){
 
+		var map = L.map('mapa').setView([-25.373286, -57.529092], 15 );
+
+		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+		}).addTo(map);
+
+		L.marker([-25.373286, -57.529092]).addTo(map)
+	    //.bindPopup('GDLWEBCAMP boletos ya DISPONIBLES!!')
+	    //.openPopup()
+	    .bindTooltip('MARGUA')
+	    .openTooltip();
+
 	//**Campos Datos de Usuarios**//
 	
 	var nombre = document.getElementById('nombre');
