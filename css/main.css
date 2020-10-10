@@ -422,7 +422,7 @@ nav.menu-programa a{
     padding-bottom: 10px;
     border-bottom: 3px solid #fe4918;
 }
-/*nav.menu-programa a.activo::after{
+nav.menu-programa a.activo::after{
     position: absolute;
     content: '';
     left: 0;
@@ -435,7 +435,7 @@ nav.menu-programa a{
     background-position: top center;
     background-repeat: no-repeat;
     bottom: -20px;
-}*/
+}
 
 @media only screen and (min-width: 768px) {
 nav.menu-programa a{
@@ -448,6 +448,9 @@ div.detalle-evento p i{
     color: #fe4918;
     font-size: 1.6em;
     margin-right: 10px;
+}
+div.ocultar {
+    display: none;
 }
 
 div.detalle-evento{
