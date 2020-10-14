@@ -41,6 +41,7 @@
 
 	var etiquetas = document.getElementById('etiquetas');
 
+	if(document.getElementById('calcular')){
 
 	calcular.addEventListener('click', calcularMontos);
 
@@ -148,11 +149,36 @@
 					}
 		}
 
+		}
+
 	});//Espera que se cargue el HTML
 
 })(); 
 
-	$(function(){
+$(function(){
+//Lettering
+	$('.nombre-sitio')	.lettering();
+
+//Menu Fijo
+
+var windowHeigth = $(window).height();
+var barraAltura = $('.barra').innerHeight();
+
+$(window).scroll(function(){
+	var scroll = $(window).scrollTop();
+	if(scroll > windowHeigth){
+		$('.barra').addClass('fixed');
+		$('body').css({'margin-top': barraAltura+'px'});
+	}else{
+		$('.barra').removeClass('fixed');
+		$('body').css({'margin-top':'0px'});
+	}
+}); 
+
+//MENU RESPONSIVE
+$('.menu-movil').on('click', function(){
+	$('.navegacion-principal').slideToggle();
+});
 
 //Programa de Conferencias
 	$('.programa-evento .info-curso:first').show();
