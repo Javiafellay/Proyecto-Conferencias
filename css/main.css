@@ -958,85 +958,51 @@ input[disabled].button {
     text-align: center;
     display: none;
 }
-/*
-h1.nombre-sitio span{
-    position: relative;
-    text-shadow: 0 0 30px black;
-}
-@media only screen and (min-width: 992px){
-    .char1{top: 20px; right: 20px;}    
-    .char2{top:0px; right:-20px;}    
-    .char3{top:10px; right:20px;}    
-    .char4{top:5px; right:10px;}    
-    .char5{top:15px; right:10px;}    
-    .char6{top:5px; right:10px;}    
-    .char7{top:20px; right:-10px;}    
-    .char8{top:0px; right:10px;}    
-    .char9{top:10px; right:20px;}    
-    .char10{top:20px; right:20px;}    
-}
-div.galeria a{
-    
-    margin-bottom: 5px;
-}
-@media only screen and (min-width:768px){
-div.galeria img{
-    width: 18%;
-}
-}
-.fixed{
-    position: fixed;
-    top: 0;
-    width: 100%;
-    left: 0;
-    z-index: 2;
-}
+/*Calendario*/
 div.calendario h3 {
-  background-color: #fe4918;
-  clear: both;
-  color: white;
-  text-align: center;
-  padding: 10px 0;
+    background-color: #fe4918;
+    clear: both;
+    color: white;
+    text-align: center;
+    padding: 10px 0px;
 }
 div.calendario::after {
-  clear: both;
-  display: block;
-  content: '';    
+    clear: both;
+    display: block;
+    content: '';
 }
-div.dia {
-  width: 50%;
-  float: left;
-  border: 2px solid #e1e1e1;  
-  transition: all .3s ease; 
+div.dia{
+    width: 50%;
+    float: left;
+    border:2px solid #e1e1e1;
+    transition: all .3s ease;
 }
-@media only screen and (min-width:768px) {
-  div.dia {
-    width: 33.3%;
-    min-height: 240px;
-    padding-top: 20px;
-  }
+@media only screen and (min-width: 768px){
+    div.dia {
+        width: 33.3%;
+        min-height: 240px;
+        padding-top: 20px;
+        padding-left: 50px;
+    }
 }
 div.dia:hover {
-  background-color: #e1e1e1;
-  -webkit-transform: scale(1.1);
+    background-color: #e1e1e1;
+    -webkit-transform:scale(1.1);
 }
 div.dia p.titulo {
-  color: #fe4918;
-  text-transform: uppercase;
-  font-weight: bold;
+    color: #fe4918;
+    text-transform: uppercase;
+    font-weight: bold;
 }
+
 div.dia p {
-  font-size: 1em;
+    font-size: 1em;
 }
 div.dia i {
-  color: #fe4918;
-  font-size: 1.6em;
+    color: #fe4918;
+    font-size: 1.6em;
 }
-div.cboxElement{
-    padding: 30px;
-    text-align: center;
-}
-*/
+
     /* ==========================================================================
    Helper classes
    ========================================================================== */
