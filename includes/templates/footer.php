@@ -38,13 +38,20 @@
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <script src="js/jquery-1.12.0.min.js"></script>
   <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/jquery.countdown.min.js"></script>
-  <script src="js/lightbox.js"></script>
+  <script src="js/jquery.countdown.min.js"></script> 
   <script src="js/jquery.lettering.js"></script>
-  
+    <?php
+    $archivo = basename($_SERVER['PHP_SELF']);
+    $pagina = str_replace(".php", "", $archivo);//PARA ELIMINAR LAS EXTENCIONES DE LOS NOMBRES DE LAS PAGINAS
+
+      if ($pagina == 'invitados' || $pagina == 'index') {
+        echo '<script src="js/jquery.colorbox-min.js"></script>';
+      }else if ($pagina == 'conferencia') {
+         /*Librería de   Lightbox para imagenes*/
+        echo '<script src="js/lightbox.js"></script>';
+      }
+  ?>
   <script src="js/main.js"></script>
-
-
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
   <script>
     window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;

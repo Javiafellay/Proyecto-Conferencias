@@ -15,27 +15,32 @@
   <link rel="manifest" href="site.webmanifest">
   <link rel="apple-touch-icon" href="icon.png">
   <!-- Place favicon.ico in the root directory -->
-
 <!-- CDN FONT-AWESOME -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
-<!--Librería de   Lightbox para imagenes-->
-  <link rel="stylesheet" href="css/lightbox.css">
-
   <!--GoogleFonts-->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Oswald:wght@400;700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
-
   <!--MAPA-OPENSOURCE-->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-
   <link rel="stylesheet" href="css/normalize.css">
+  
+  <?php
+
+    $archivo = basename($_SERVER['PHP_SELF']);
+    $pagina = str_replace(".php", "", $archivo);//PARA ELIMINAR LAS EXTENCIONES DE LOS NOMBRES DE LAS PAGINAS
+
+      if ($pagina == 'invitados' || $pagina == 'index') {
+        echo '<link rel="stylesheet" href="css/colorbox.css">';
+      }else if ($pagina == 'conferencia') {
+         /*Librería de   Lightbox para imagenes*/
+        echo '<link rel="stylesheet" href="css/lightbox.css">';
+      }
+  ?>
 
   <link rel="stylesheet" href="css/main.css">
-
   <meta name="theme-color" content="#fafafa">
 </head>
 
-<body>
+<body class="<?php echo $pagina; ?>">
 
 <header class="site-header">
   <div class="hero">
@@ -75,9 +80,9 @@
       </div><!--menu mobil-->
 
       <nav class="navegacion-principal clearfix">
-        <a href="conferencias.php">Conferencias</a>
+        <a href="conferencia.php">Conferencias</a>
         <a href="calendario.php">Calendario</a>
-        <a href="#">Invitados</a>
+        <a href="invitados.php">Invitados</a>
         <a href="registro.php">Reservaciones</a>
       </nav>
 

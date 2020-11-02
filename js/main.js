@@ -159,6 +159,12 @@ $(function(){
 //Lettering
 	$('.nombre-sitio')	.lettering();
 
+//Agregar clase al menu
+
+	$('body.conferencia .navegacion-principal a:contains("Conferencia")').addClass('activo');
+	$('body.calendario .navegacion-principal a:contains("Calendario")').addClass('activo');
+	$('body.invitados .navegacion-principal a:contains("Invitados")').addClass('activo');
+
 //Menu Fijo
 
 var windowHeigth = $(window).height();
@@ -201,10 +207,18 @@ $('.menu-movil').on('click', function(){
 	$('.resumen-evento li:nth-child(3) p').animateNumber({ number: 3}, 2000);
 	$('.resumen-evento li:nth-child(4) p').animateNumber({ number: 9}, 1600);
 
+	//Cuenta Regresiva
+
 	$('.cuenta-regresiva').countdown('2020/12/31 09:00:00', function(event){
 		$('#dias').html(event.strftime('%D'));
 		$('#horas').html(event.strftime('%H'));
 		$('#minutos').html(event.strftime('%M'));
 		$('#segundos').html(event.strftime('%S'));
 	});
+
+
+// ColorBox
+
+$('.invitado-info').colorbox({inline:true, width:"50%"});
+
 });
