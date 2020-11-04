@@ -18,68 +18,90 @@
     <div class="contenedor">
       <div class="programa-evento">
         <h2>Programa del Evento</h2>
-        <nav class="menu-programa">
-          <a href="#talleres"><i class="fa fa-code" aria-hidden="true"></i>Talleres</a>
-          <a href="#conferencias"><i class="fa fa-comment" aria-hidden="true"></i>Conferencias</a>
-          <a href="#seminarios"><i class="fa fa-university" aria-hidden="true"></i>Seminarios</a>
+
+ <?php 
+
+    try {
+      require_once "includes/funciones/bd_conexion.php";
+      $sql = "SELECT * FROM `categoria_evento` ";
+      $resultado = $conn->query($sql);
+    } catch (Exception $e) {
+      echo $e->getMessage();
+    }
+
+  ?>
+       <nav class="menu-programa">
+          <?php while($cat = $resultado->fetch_array(MYSQLI_ASSOC)) { ?>
+          	<?php $categoria = $cat['cat_evento']; ?>
+          		<a href="#<?php echo strtolower($categoria)?>">
+          			<i class="fa <?php echo $cat['icono']?>" aria-hidden="true"></i><?php echo $categoria?></a>
+          	
+          <?php } ?>
         </nav><!--menu-programa-->
 
-        <div id="talleres" class="info-curso ocultar clearfix">
+   <?php 
+
+	    try {
+	      require_once "includes/funciones/bd_conexion.php";
+	      $sql = "SELECT evento_id, nombre_evento, fecha_evento, hora_evento, cat_evento, icono, nombre_invitado, apellido_invitado ";
+	      $sql .= " FROM eventos ";
+	      $sql .= " INNER JOIN categoria_evento ";
+	      $sql .= " ON eventos.id_cat_evento = categoria_evento.id_categoria ";
+	      $sql .= " INNER JOIN invitados ";
+	      $sql .= " ON eventos.id_inv = invitados.invitado_id ";
+	      $sql .= "AND eventos.id_cat_evento = 1";
+	      $sql .= " ORDER BY `evento_id` LIMIT 2; ";
+		  $sql .= "SELECT evento_id, nombre_evento, fecha_evento, hora_evento, cat_evento, icono, nombre_invitado, apellido_invitado ";
+	      $sql .= " FROM eventos ";
+	      $sql .= " INNER JOIN categoria_evento ";
+	      $sql .= " ON eventos.id_cat_evento = categoria_evento.id_categoria ";
+	      $sql .= " INNER JOIN invitados ";
+	      $sql .= " ON eventos.id_inv = invitados.invitado_id ";
+	      $sql .= "AND eventos.id_cat_evento = 2";
+	      $sql .= " ORDER BY `evento_id` LIMIT 2; ";
+	      $sql .= "SELECT evento_id, nombre_evento, fecha_evento, hora_evento, cat_evento, icono, nombre_invitado, apellido_invitado ";
+	      $sql .= " FROM eventos ";
+	      $sql .= " INNER JOIN categoria_evento ";
+	      $sql .= " ON eventos.id_cat_evento = categoria_evento.id_categoria ";
+	      $sql .= " INNER JOIN invitados ";
+	      $sql .= " ON eventos.id_inv = invitados.invitado_id ";
+	      $sql .= "AND eventos.id_cat_evento = 3";
+	      $sql .= " ORDER BY `evento_id` LIMIT 2; ";
+	    } catch (Exception $e) {
+	      echo $e->getMessage();
+	    }
+  ?>
+
+  <?php $conn->multi_query($sql); ?>
+
+  <?php
+
+  	do{
+  		$resultado = $conn->store_result();
+  		$row = $resultado->fetch_all(MYSQLI_ASSOC); ?>
+  		<?php $i = 0; ?>
+  		<?php foreach($row as $evento): ?>
+  		<?php if($i % 2 == 0) {?><!--Para que solo se ejecute en numeros pares  0 2 4 y así-->
+  		  <div id="<?php echo strtolower($evento['cat_evento']) ?>" class="info-curso ocultar clearfix">
+  		  <?php } ?>
           <div class="detalle-evento">
-            <h3>HTML5, CSS3 y JavaScript</h3>
-            <p><i class="fa fa-clock" aria-hidden="true"></i>16:00 hs</p>
-            <p><i class="fa fa-calendar" aria-hidden="true"></i>06 de junio</p>
-            <p><i class="fa fa-user" aria-hidden="true"></i>Javier Martinez Guanez </p>
+            <h3><?php echo utf8_encode($evento['nombre_evento']) ?></h3>
+            <p><i class="fa fa-clock" aria-hidden="true"></i> <?php echo $evento['hora_evento'];?></p>
+            <p><i class="fa fa-calendar" aria-hidden="true"></i><?php echo $evento['fecha_evento'];?></p>
+            <p><i class="fa fa-user" aria-hidden="true"></i><?php echo $evento['nombre_invitado'] . " " . $evento['apellido_invitado'];?></p>
           </div>
-
-          <div class="detalle-evento">
-            <h3>Responsive Web Design</h3>
-            <p><i class="fa fa-clock" aria-hidden="true"></i>16:00 hs</p>
-            <p><i class="fa fa-calendar" aria-hidden="true"></i>06 de junio</p>
-            <p><i class="fa fa-user" aria-hidden="true"></i>Javier Martinez Guanez </p>
-          </div>
-
-          <a href="#" class="button float-right">Ver Todos</a>
-
+          
+        <?php if($i % 2 == 1):?>
+        	<a href="calendario.php" class="button float-right">Ver Todos</a>
         </div><!--#talleres-->
+	    <?php endif;?>
+	    <?php $i++; ?>
+	    <?php endforeach; ?>
+	    <?php $resultado->free(); ?>
+	  	<?php } while ($conn->more_results() && $conn->next_result()); {
+  	}
 
-        <div id="conferencias" class="info-curso ocultar clearfix">
-          <div class="detalle-evento">
-            <h3>Como ser Freelance</h3>
-            <p><i class="fa fa-clock" aria-hidden="true"></i>10:00 hs</p>
-            <p><i class="fa fa-calendar" aria-hidden="true"></i>10 de junio</p>
-            <p><i class="fa fa-user" aria-hidden="true"></i>Marck Martinez Guanez </p>
-          </div>
-
-          <div class="detalle-evento">
-            <h3>Tecnologias del Futuro</h3>
-            <p><i class="fa fa-clock" aria-hidden="true"></i>17:00 hs</p>
-            <p><i class="fa fa-calendar" aria-hidden="true"></i>10 de junio</p>
-            <p><i class="fa fa-user" aria-hidden="true"></i>Marta Martinez Guanez </p>
-          </div>
-
-          <a href="#" class="button float-right">Ver Todos</a>
-
-        </div><!--#talleres-->
-
-        <div id="seminarios" class="info-curso ocultar clearfix">
-          <div class="detalle-evento">
-            <h3>Diseño UI/UX para móbiles</h3>
-            <p><i class="fa fa-clock" aria-hidden="true"></i>17:00 hs</p>
-            <p><i class="fa fa-calendar" aria-hidden="true"></i>11 de junio</p>
-            <p><i class="fa fa-user" aria-hidden="true"></i>El tío Elon Musk</p>
-          </div>
-
-          <div class="detalle-evento">
-            <h3>Aprende a programar en una mañana</h3>
-            <p><i class="fa fa-clock" aria-hidden="true"></i>20:00 hs</p>
-            <p><i class="fa fa-calendar" aria-hidden="true"></i>10 de Diciembre</p>
-            <p><i class="fa fa-user" aria-hidden="true"></i>El Sr Bigotes</p>
-          </div>
-
-          <a href="#" class="button float-right">Ver Todos</a>
-
-        </div><!--#talleres-->
+  ?>
       </div><!--programaevento-->
     </div><!--contenedor-->
   </div><!--contenidoPrograma-->
