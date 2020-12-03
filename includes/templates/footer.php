@@ -32,15 +32,15 @@
 </p>
   
 </footer>
+<script src="js/jquery-1.12.0.min.js"></script>
+<script src="js/vendor/modernizr-3.11.2.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/jquery.animateNumber.min.js"></script>
+<script src="js/jquery.countdown.min.js"></script> 
+<script src="js/jquery.lettering.js"></script>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 
-  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
-  <script src="js/plugins.js"></script>
-  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-  <script src="js/jquery-1.12.0.min.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/jquery.countdown.min.js"></script> 
-  <script src="js/jquery.lettering.js"></script>
-    <?php
+<?php
     $archivo = basename($_SERVER['PHP_SELF']);
     $pagina = str_replace(".php", "", $archivo);//PARA ELIMINAR LAS EXTENCIONES DE LOS NOMBRES DE LAS PAGINAS
 
